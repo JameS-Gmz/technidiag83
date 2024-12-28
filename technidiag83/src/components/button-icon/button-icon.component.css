@@ -1,0 +1,21 @@
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+p {
+  margin: 0%;
+  padding: 0%;
+  color: white;
+  font-size: auto;
+}
+
+

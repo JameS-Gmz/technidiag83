@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    color: rgba(0, 47, 109, 1);
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+}
+
+h1 {
+    background-color: rgba(0, 47, 109, 1);
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    color: #ffde59;
+    padding: 0.5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 5em;
+}
+
+.table {
+    padding: 2%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    color: rgba(0, 47, 109, 1);
+    justify-items: center;
+    align-items: center;
+}
+
+.column-1 {
+    background-color: rgba(0, 47, 109, 0.024);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+}
+
+
+.column-1 p {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.column-1 ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 1rem;
+}
+
+.column-1 ul li {
+    margin-bottom: 0.5rem;
+}
+
+.column-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 47, 109, 1);
+    border-radius: 100%;
+    width: 7em;
+    height: 7em;
+    position: relative;
+    border: 2px solid #FFDE59; 
+    box-shadow: 0 0 10px rgba(255, 222, 89, 0.8); /* Optionnel : ajout d'un effet lumineux */
+  }
+  
+  app-button-icon {
+    position: absolute;
+  }

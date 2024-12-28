@@ -1,0 +1,19 @@
+<div class="background">
+    <div class="column-1">
+        <p>Diagnostiqueur Immobilier</p>
+    </div>
+    <div class="column-2">
+        <app-button-icon img="Devis.svg" text="Devis" routerLink="/devis"></app-button-icon>
+        <app-button-icon img="Accueil.svg" text="Accueil" routerLink="/"></app-button-icon>
+        <div class="dropdown">
+            <app-button-icon img="Diagnostic.svg" text="Diagnostic"></app-button-icon>
+            <div class="dropdown-content">
+              <button class="dropdown-button" routerLink="/diagnosticVente">Diagnostic Vente</button>
+              <button class="dropdown-button" routerLink="/diagnosticLocation">Diagnostic Location</button>
+            </div>
+          </div>
+    </div>
+    <div class="column-3">
+        <app-button-icon img="Contact.svg" text="Contact" routerLink="/contact"></app-button-icon>
+    </div>
+</div>
