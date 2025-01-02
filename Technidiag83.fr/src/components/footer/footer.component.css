@@ -1,0 +1,103 @@
+.background {
+    padding: 1%;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    background-color: rgba(0, 47, 109, 1); /* Couleur de fond */
+    color: white; /* Texte en blanc */
+    z-index: index 10;
+
+  }
+  
+  .column-1 {
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  
+  .column-2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 2.5fr;
+    gap: 1%;
+    justify-items: center;
+    align-items: center;
+    padding: 0%;
+  }
+  
+  .column-3 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .logo {
+    position: relative;
+    top: -20px; 
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 47, 109, 1); 
+    border-radius: 50%; 
+    border: 2px solid #FFDE59; 
+    box-shadow: 0 0 10px rgba(255, 222, 89, 0.8); /* Optionnel : ajout d'un effet lumineux */
+  }
+
+  p {
+    margin: 0%;
+    padding: 0%;
+  }
+
+  @media (max-width :750px) {
+    .background {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 0%;
+    } 
+  
+    .column-1 {
+      text-align: center;
+      padding: 2%;
+      order: 2;
+    }
+  
+    .column-2 {
+      order: 1; 
+    }
+  
+    .column-2 .logo img {
+      width: 100%;
+    }
+
+    .column-3 {
+      order: 3;
+    }
+  }
+
+  .column-3 p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6); /* Light color for discretion */
+    text-align: center;
+    margin: 0;
+    padding: 0.2em;
+    font-family: "Ephesis", serif;
+  }
+
+  .column-3 span {
+    font-family: 'Pacifico';
+    font-size: smaller;
+  }
+
+  .column-3 a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+  }
+
+  .column-3 a:hover {
+    color: #FFDE59;
+  }

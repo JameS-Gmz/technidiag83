@@ -1,0 +1,134 @@
+<div class="devis-container">
+  <div class="content">
+
+    <div class="left-column">
+      <h2>HORAIRES</h2>
+      <p>Disponible du <span>LUNDI</span> au <span>Vendredi</span> <br />(de
+        9h00 jusqu'à 17h30)</p>
+      <p>et</p>
+      <p><span>SAMEDI</span><br>(de 9h00 à 12h00)</p>
+    </div>
+
+    <div class="middle-column">
+      <div class="icons-grid">
+        <h1>Demande de Devis</h1>
+        <p>Pour toute demande de devis, veuillez remplir le formulaire
+          ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
+          <form [formGroup]="devisForm" (ngSubmit)="onSubmit($event)">
+            <div class="form-group">
+              <select id="bien" formControlName="genre" required>
+                <option value="" disabled selected>Genre</option>
+                <option value="Madame">Madame</option>
+                <option value="Monsieur">Monsieur</option>
+                <option value="Autres">Autres</option>
+              </select>
+              <div *ngIf="devisForm.get('genre')?.touched && devisForm.get('genre')?.invalid">
+                <small class="error">Ce champ est requis.</small>
+              </div>
+              <input type="text" id="name" formControlName="name" placeholder="Votre nom..." required>
+              <div *ngIf="devisForm.get('name')?.touched && devisForm.get('name')?.invalid">
+                <small class="error">Ce champ est requis.</small>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" id="email" formControlName="email" placeholder="Votre email..." required>
+              <div *ngIf="devisForm.get('email')?.touched && devisForm.get('email')?.invalid">
+                <small class="error">Ce champ est requis.</small>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="phone">Téléphone :</label>
+              <input type="tel" id="phone" formControlName="phone" placeholder="Votre numéro de téléphone..." required>
+            </div>
+          
+            <div class="form-group">
+              <label for="bien">Quel est le type du bien :</label>
+              <select id="bien" formControlName="bien" required>
+                <option value="" disabled selected>Type de bien</option>
+                <option value="Maison">Maison</option>
+                <option value="Appartement">Appartement</option>
+                <option value="Garage">Garage</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Autres">Autres</option>
+              </select>
+              <div *ngIf="devisForm.get('bien')?.touched && devisForm.get('bien')?.invalid">
+                <small class="error">Ce champ est requis.</small>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="address">Adresse du bien :</label>
+              <input type="text" id="address" formControlName="address" placeholder="Adresse..." required>
+              <div *ngIf="devisForm.get('address')?.touched && devisForm.get('address')?.invalid">
+                <small class="error">Ce champ est requis.</small>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="transaction">Quel est le type de transaction :</label>
+              <select id="transaction" formControlName="transaction" name="transaction" required>
+                <option value="" disabled selected>Type de transaction</option>
+                <option value="Vente">Vente</option>
+                <option value="Location">Location</option>
+                <option value="Autres">Autres</option>
+              </select>
+              <div *ngIf="devisForm.get('transaction')?.touched && devisForm.get('transaction')?.invalid">
+                <small class="error">Ce champ est requis.</small>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="diagnostics">Diagnostics :</label>
+              <div class="checkbox-group">
+                <div class="checkbox-row" *ngFor="let diagnostic of diagnostics">
+                  <label [for]="diagnostic">{{ diagnostic | titlecase }}</label>
+                  <input type="checkbox" [id]="diagnostic" [value]="diagnostic" (change)="onCheckboxChange($event)">
+                </div>
+              </div>
+            </div>
+          
+            <button [disabled]="isSubmitting" type="submit" [disabled]="devisForm.invalid">Envoyer</button>
+          </form>
+          <div *ngIf="loading" class="loading-spinner">
+            <div class="spinner"></div>
+          </div>
+        </div>
+        <div class="confirmation-message" *ngIf="confirmationMessage">
+          <p>{{ confirmationMessage }}</p>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <h2>⚠️ Important a Savoir ⚠️</h2>
+        <div class="warning">
+          <h3>Concernant la location :</h3>
+          <p>
+            En tant que propriétaire bailleur, il est essentiel de respecter vos
+            obligations légales, notamment en mettant à disposition un logement
+            décent et conforme aux normes en vigueur. Un diagnostic immobilier
+            complet garantit que votre bien respecte ces exigences et évite tout
+            risque de litige. Nos experts vous accompagnent dans la réalisation
+            des diagnostics obligatoires, afin de sécuriser vos locations et
+            préserver vos relations locatives dans le cadre de la loi n° 89-462
+            du
+            6 juillet 1989.
+          </p>
+          <h3>Concernant la vente :</h3>
+          <p>
+            En tant que propriétaire vendeur, vous avez l’obligation de fournir
+            à
+            l’acheteur des diagnostics immobiliers conformes et à jour,
+            garantissant la transparence et la sécurité de la transaction. Nos
+            experts réalisent pour vous tous les diagnostics obligatoires (DPE,
+            amiante, plomb, etc.), afin de sécuriser votre vente et d’éviter
+            tout
+            litige futur. Nous vous accompagnons dans le respect des
+            réglementations en vigueur pour une transaction sereine et en toute
+            conformité.</p>
+        </div>
+      </div>
+    </div>
+  </div>
