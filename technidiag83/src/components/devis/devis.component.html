@@ -14,98 +14,90 @@
         <h1>Demande de Devis</h1>
         <p>Pour toute demande de devis, veuillez remplir le formulaire
           ci-dessous. Nous vous répondrons dans les plus brefs délais.</p>
-        <form id="devisForm" method="POST" action="http://46.202.173.219:3000/send-devis">
-          <div class="form-group">
-            <select id="bien" name="genre" required>
-              <option value="Madame">Madame</option>
-              <option value="Monsieur">Monsieur</option>
-              <option value="Autres">Autres</option>
-            </select>
-            <input type="text" id="name" name="name" placeholder="Votre nom..."
-              required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" placeholder="Votre email..." required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Téléphone :</label>
-            <input type="tel" id="phone" name="phone"  placeholder="Votre numléro de téléphone..." required>
-          </div>
-          <div class="form-group">
-            <label for="bien">Quel est le type du bien :</label>
-            <select id="bien" name="bien" required>
-              <option value="Maison">Maison</option>
-              <option value="Appartement">Appartement</option>
-              <option value="Garage">Garage</option>
-              <option value="Commerce">Commerce</option>
-              <option value="Autres">Autres</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="address" >Adresse du bien :</label>
-            <input type="text" id="address" name="address" placeholder="Adresse..." required>
-          </div>
-          <div class="form-group">
-            <label for="transaction">Quel est le type de transaction :</label>
-            <select id="transaction" name="transaction" required>
-              <option value="Vente">Vente</option>
-              <option value="Location">Location</option>
-              <option value="Autres">Autres</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="diagnostics">Diagnostics :</label>
-            <div class="checkbox-group">
-              <div class="checkbox-row">
-                <label>DPE</label>
-                <input type="checkbox" id="dpe" name="diagnostics"
-                  value="DPE">
+          <form [formGroup]="devisForm" (ngSubmit)="onSubmit($event)">
+            <div class="form-group">
+              <select id="bien" formControlName="genre" required>
+                <option value="" disabled selected>Genre</option>
+                <option value="Madame">Madame</option>
+                <option value="Monsieur">Monsieur</option>
+                <option value="Autres">Autres</option>
+              </select>
+              <div *ngIf="devisForm.get('genre')?.touched && devisForm.get('genre')?.invalid">
+                <small class="error">Ce champ est requis.</small>
               </div>
-              <div class="checkbox-row">
-                <label>Amiante</label>
-                <input type="checkbox" id="amiante" name="diagnostics"
-                  value="Amiante">
+              <input type="text" id="name" formControlName="name" placeholder="Votre nom..." required>
+              <div *ngIf="devisForm.get('name')?.touched && devisForm.get('name')?.invalid">
+                <small class="error">Ce champ est requis.</small>
               </div>
-              <div class="checkbox-row">
-                <label>Plomb</label>
-                <input type="checkbox" id="plomb" name="diagnostics"
-                  value="Plomb">
+            </div>
+          
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" id="email" formControlName="email" placeholder="Votre email..." required>
+              <div *ngIf="devisForm.get('email')?.touched && devisForm.get('email')?.invalid">
+                <small class="error">Ce champ est requis.</small>
               </div>
-              <div class="checkbox-row">
-                <label>Gaz</label>
-                <input type="checkbox" id="gaz" name="diagnostics"
-                  value="Gaz">
+            </div>
+          
+            <div class="form-group">
+              <label for="phone">Téléphone :</label>
+              <input type="tel" id="phone" formControlName="phone" placeholder="Votre numéro de téléphone..." required>
+            </div>
+          
+            <div class="form-group">
+              <label for="bien">Quel est le type du bien :</label>
+              <select id="bien" formControlName="bien" required>
+                <option value="" disabled selected>Type de bien</option>
+                <option value="Maison">Maison</option>
+                <option value="Appartement">Appartement</option>
+                <option value="Garage">Garage</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Autres">Autres</option>
+              </select>
+              <div *ngIf="devisForm.get('bien')?.touched && devisForm.get('bien')?.invalid">
+                <small class="error">Ce champ est requis.</small>
               </div>
-              <div class="checkbox-row">
-                <label>Électricité</label>
-                <input type="checkbox" id="electricite" name="diagnostics"
-                  value="Électricité">
+            </div>
+          
+            <div class="form-group">
+              <label for="address">Adresse du bien :</label>
+              <input type="text" id="address" formControlName="address" placeholder="Adresse..." required>
+              <div *ngIf="devisForm.get('address')?.touched && devisForm.get('address')?.invalid">
+                <small class="error">Ce champ est requis.</small>
               </div>
-              <div class="checkbox-row">
-                <label>Termites</label>
-                <input type="checkbox" id="termites" name="diagnostics"
-                  value="Termites">
+            </div>
+          
+            <div class="form-group">
+              <label for="transaction">Quel est le type de transaction :</label>
+              <select id="transaction" formControlName="transaction" name="transaction" required>
+                <option value="" disabled selected>Type de transaction</option>
+                <option value="Vente">Vente</option>
+                <option value="Location">Location</option>
+                <option value="Autres">Autres</option>
+              </select>
+              <div *ngIf="devisForm.get('transaction')?.touched && devisForm.get('transaction')?.invalid">
+                <small class="error">Ce champ est requis.</small>
               </div>
-              <div class="checkbox-row">
-                <label>ERP</label>
-                <input type="checkbox" id="erp" name="diagnostics"
-                  value="ERP">
-              </div>
-              <div class="checkbox-row">
-                <label>Loi Boutin</label>
-                <input type="checkbox" id="boutin" name="diagnostics"
-                  value="LoiBoutin">
-                </div>
-                <div class="checkbox-row">
-                  <label>Loi Carrez</label>
-                  <input type="checkbox" id="carrez" name="diagnostics"
-                    value="Loi Carrez">
+            </div>
+          
+            <div class="form-group">
+              <label for="diagnostics">Diagnostics :</label>
+              <div class="checkbox-group">
+                <div class="checkbox-row" *ngFor="let diagnostic of diagnostics">
+                  <label [for]="diagnostic">{{ diagnostic | titlecase }}</label>
+                  <input type="checkbox" [id]="diagnostic" [value]="diagnostic" (change)="onCheckboxChange($event)">
                 </div>
               </div>
             </div>
-            <button type="submit">Envoyer</button>
+          
+            <button [disabled]="isSubmitting" type="submit" [disabled]="devisForm.invalid">Envoyer</button>
           </form>
+          <div *ngIf="loading" class="loading-spinner">
+            <div class="spinner"></div>
+          </div>
+        </div>
+        <div class="confirmation-message" *ngIf="confirmationMessage">
+          <p>{{ confirmationMessage }}</p>
         </div>
       </div>
 
