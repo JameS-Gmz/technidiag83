@@ -75,6 +75,8 @@
   padding: 1rem;
   border-radius: 10px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .right-column h3 {
@@ -85,33 +87,33 @@
 .right-column:hover {
   box-shadow: 0 0 20px rgba(255, 222, 89, 0.8);
   transform: scale(1.05);
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0px 0px ;
+  z-index: 20;
 }
 
 .warning {
+  z-index: 21;
   display: none;
   width: 100%;
+  position: absolute;
+  top: 95%; 
+  left: 0;
+  padding: 15px;
+  background-color: rgba(0, 47, 109, 1);
+  color: white;
+  border-radius: 0 0 10px 10px;
+  text-align: start;
+  line-height: 1.5em;
+  box-shadow: 0 5px 5px rgba(255, 222, 89, 0.5); 
+  opacity: 0;
+  transition: opacity 0.3s ease; 
 }
 
 .right-column:hover .warning {
   display: block;
-  width: 100%;
-  /* Make the warning the same width as the right-column */
-  background-color: rgba(0, 47, 109, 1);
-  text-align: start;
-  line-height: 1.5em;
-  padding: 2%;
-  border-radius: 0 0 10px 10px;
-  /* Adjust border-radius for better appearance */
-  position: absolute;
-  /* Position the warning absolutely within the right-column */
-  top: 100%;
-  /* Position the warning below the right-column */
-  left: 0;
-  /* Align the warning to the left edge of the right-column */
-  box-shadow: 0 8px 15px rgba(255, 222, 89, 0.8);
-  /* Adjust box-shadow to remove the joining shadow */
+  opacity: 1;
 }
+
 
 .middle-column {
   display: flex;
@@ -146,7 +148,7 @@
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(255, 222, 89, 0.8);
   /* Optionnel : ajout d'un effet lumineux */
-  transform: scale(1.05);
+  transform: scale(1.00);
   box-sizing: border-box;
 }
 
@@ -177,11 +179,9 @@
 @media (max-width: 1600px) {
   .header {
     flex-direction: row;
-    /* Conserve une disposition horizontale pour le header */
     width: 80%;
     height: 10em;
     padding: 0.5rem;
-    /* Moins de padding pour les très petits écrans */
   }
 
   .content {
@@ -213,8 +213,8 @@
   .middle-column {
     order: 3;
     grid-column: span 2;
-    width: 50%; /* Adjust the width as needed */
-    margin: 0 auto; /* Center the middle column */
+    width: 50%;
+    margin: 0 auto;
   }
 
   .icons-grid {
@@ -223,7 +223,7 @@
   }
 
   .footer-note img {
-    width: 15%;
+    width: 30% !important;
   }
 }
 
@@ -232,11 +232,9 @@
 
   .header {
     flex-direction: row;
-    /* Conserve une disposition horizontale pour le header */
     width: 100%;
     height: 10em;
     padding: 0.5rem;
-    /* Moins de padding pour les très petits écrans */
   }
 
   .legend p {
@@ -246,13 +244,11 @@
 
   .logo {
     display: none;
-    /* Réduit encore plus la taille du logo */
   }
 
   .content {
     display: grid;
     grid-template-columns: 1fr;
-    /* Une colonne pour les petits écrans */
   }
 
   .footer-note img {
@@ -262,7 +258,6 @@
   .nav-menu {
     display: flex;
     flex-direction: column;
-    /* Empile les liens du menu pour les petits écrans */
     align-items: center;
   }
 
@@ -276,20 +271,17 @@
 
   .middle-column {
     order: 2;
-    /* Affiche la colonne du milieu en deuxième */
     width: 100%;
   }
 
   .right-column {
     order: 1;
-    /* Affiche la colonne de droite en premier */
     width: 100%;
     height: 100%;
   }
 
   .icons-grid {
     grid-template-columns: repeat(3, 1fr) !important;
-    /* Affiche deux colonnes d'icônes */
   }
 
 }
@@ -297,11 +289,9 @@
 @media (max-width: 500px) {
   .header {
     flex-direction: row;
-    /* Conserve une disposition horizontale pour le header */
     width: 100%;
     height: 10em;
     padding: 0.5em;
-    /* Moins de padding pour les très petits écrans */
   }
 
   .legend p {
@@ -312,13 +302,11 @@
 
   .logo {
     display: none;
-    /* Réduit encore plus la taille du logo */
   }
 
   .content {
     display: grid;
     grid-template-columns: 1fr;
-    /* Une colonne pour les petits écrans */
   }
 
   .footer-note img {
@@ -328,7 +316,6 @@
   .nav-menu {
     display: flex;
     flex-direction: column;
-    /* Empile les liens du menu pour les petits écrans */
     align-items: center;
   }
 
@@ -342,20 +329,17 @@
 
   .middle-column {
     order: 2;
-    /* Affiche la colonne du milieu en deuxième */
     width: 100%;
   }
 
   .right-column {
     order: 1;
-    /* Affiche la colonne de droite en premier */
     width: 100%;
     height: 100%;
   }
 
   .icons-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    /* Affiche deux colonnes d'icônes */
   }
 }
 
@@ -374,7 +358,6 @@
   .content {
     display: grid;
     grid-template-columns: 1fr;
-    /* Une colonne pour les petits écrans */
   }
 
   .footer-note img {
@@ -384,7 +367,6 @@
   .nav-menu {
     display: flex;
     flex-direction: column;
-    /* Empile les liens du menu pour les petits écrans */
     align-items: center;
   }
 
@@ -395,19 +377,16 @@
 
   .middle-column {
     order: 2;
-    /* Affiche la colonne du milieu en deuxième */
     width: 100%;
   }
 
   .right-column {
     order: 1;
-    /* Affiche la colonne de droite en premier */
     width: 100%;
     height: 100%;
   }
 
   .icons-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    /* Affiche deux colonnes d'icônes */
   }
 }

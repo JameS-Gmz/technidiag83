@@ -29,24 +29,34 @@ export class DevisComponent implements OnInit {
       bien: ['', Validators.required],
       address: ['', Validators.required],
       transaction: ['', Validators.required],
-      diagnostics: this.fb.array([])
+      diagnostics: this.fb.array([]),
+      piecesA: ['', Validators.required],  // Valeur par défaut vide
+      piecesM: ['', Validators.required]  // Valeur par défaut vide
+    });
+
+    // Abonnement pour suivre le changement de la sélection du type de bien
+    this.devisForm.get('bien')?.valueChanges.subscribe((value) => {
+      if (value === 'Appartement') {
+        this.devisForm.get('piecesA')?.setValidators([Validators.required]);
+        this.devisForm.get('piecesM')?.clearValidators();
+      } else if (value === 'Maison') {
+        this.devisForm.get('piecesM')?.setValidators([Validators.required]);
+        this.devisForm.get('piecesA')?.clearValidators();
+      } else {
+        this.devisForm.get('piecesA')?.clearValidators();
+        this.devisForm.get('piecesM')?.clearValidators();
+      }
+      this.devisForm.get('piecesA')?.updateValueAndValidity();
+      this.devisForm.get('piecesM')?.updateValueAndValidity();
     });
   }
 
-  validateForm(): boolean {
-    for (const field in this.devisForm.controls) {
-      if (this.devisForm.controls.hasOwnProperty(field)) {
-        const control = this.devisForm.get(field);
-        control?.markAsTouched({ onlySelf: true });
-      }
-    }
-    return this.devisForm.valid;
-  }
+
 
   onCheckboxChange(event: Event): void {
     const checkbox = event.target as HTMLInputElement;
     const diagnosticsArray = this.devisForm.get('diagnostics') as FormArray;
-  
+
     if (checkbox.checked) {
       diagnosticsArray.push(this.fb.control(checkbox.value));
     } else {
@@ -54,6 +64,20 @@ export class DevisComponent implements OnInit {
       diagnosticsArray.removeAt(index);
     }
   }
+
+  validateForm(): boolean {
+    for (const field in this.devisForm.controls) {
+      if (this.devisForm.controls.hasOwnProperty(field)) {
+        const control = this.devisForm.get(field);
+        // Marquer seulement les champs qui ont été modifiés
+        if (control && (control.dirty || control.touched)) {
+          control.markAsTouched();
+        }
+      }
+    }
+    return this.devisForm.valid;
+  }
+
 
   onSubmit(event: Event): void {
     event.preventDefault();
@@ -69,7 +93,7 @@ export class DevisComponent implements OnInit {
             console.log('Réponse du serveur:', data);
             this.showConfirmationMessage('Votre devis a été envoyé avec succès.');
             this.isSubmitting = false;
-            this.loading = false;  // Désactive le spinner
+            this.loading = false;
           },
           error: (error) => {
             console.error('Erreur lors de l\'envoi du devis:', error);
