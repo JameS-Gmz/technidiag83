@@ -116,6 +116,6 @@ export class DevisComponent implements OnInit {
 
   showConfirmationMessage(message: string) {
     this.confirmationMessage = message;
-    console.log('Confirmation message:', this.confirmationMessage);  // Ajoutez ceci pour déboguer
+    console.log('Confirmation message:', this.confirmationMessage); 
   }
 }
