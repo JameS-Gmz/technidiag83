@@ -36,18 +36,23 @@ export class DevisComponent implements OnInit {
 
     // Abonnement pour suivre le changement de la sélection du type de bien
     this.devisForm.get('bien')?.valueChanges.subscribe((value) => {
+      const piecesAControl = this.devisForm.get('piecesA');
+      const piecesMControl = this.devisForm.get('piecesM');
+
+      // On réinitialise les validateurs des deux champs avant d'appliquer les nouvelles règles
+      piecesAControl?.clearValidators();
+      piecesMControl?.clearValidators();
+
+      // Appliquer les validateurs en fonction du type de bien
       if (value === 'Appartement') {
-        this.devisForm.get('piecesA')?.setValidators([Validators.required]);
-        this.devisForm.get('piecesM')?.clearValidators();
+        piecesAControl?.setValidators([Validators.required]);
       } else if (value === 'Maison') {
-        this.devisForm.get('piecesM')?.setValidators([Validators.required]);
-        this.devisForm.get('piecesA')?.clearValidators();
-      } else {
-        this.devisForm.get('piecesA')?.clearValidators();
-        this.devisForm.get('piecesM')?.clearValidators();
+        piecesMControl?.setValidators([Validators.required]);
       }
-      this.devisForm.get('piecesA')?.updateValueAndValidity();
-      this.devisForm.get('piecesM')?.updateValueAndValidity();
+
+      // Mise à jour de la validité des champs
+      piecesAControl?.updateValueAndValidity();
+      piecesMControl?.updateValueAndValidity();
     });
   }
 
