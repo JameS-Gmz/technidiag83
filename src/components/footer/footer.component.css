@@ -32,7 +32,9 @@
   .column-3 {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    text-align: end;
+    align-items: end;
   }
   
   .logo {

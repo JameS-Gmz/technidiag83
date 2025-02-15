@@ -34,26 +34,30 @@ export class DevisComponent implements OnInit {
       piecesM: ['', Validators.required]  // Valeur par défaut vide
     });
 
-    // Abonnement pour suivre le changement de la sélection du type de bien
-    this.devisForm.get('bien')?.valueChanges.subscribe((value) => {
-      const piecesAControl = this.devisForm.get('piecesA');
-      const piecesMControl = this.devisForm.get('piecesM');
+// Abonnement pour suivre le changement de la sélection du type de bien
+this.devisForm.get('bien')?.valueChanges.subscribe((value) => {
+  let piecesControl;
 
-      // On réinitialise les validateurs des deux champs avant d'appliquer les nouvelles règles
-      piecesAControl?.clearValidators();
-      piecesMControl?.clearValidators();
+  // Déterminer quel contrôle utiliser en fonction du type de bien
+  if (value === 'Appartement') {
+    piecesControl = this.devisForm.get('piecesA');
+  } else if (value === 'Maison') {
+    piecesControl = this.devisForm.get('piecesM');
+  }
 
-      // Appliquer les validateurs en fonction du type de bien
-      if (value === 'Appartement') {
-        piecesAControl?.setValidators([Validators.required]);
-      } else if (value === 'Maison') {
-        piecesMControl?.setValidators([Validators.required]);
-      }
+  // Réinitialiser les validateurs
+  this.devisForm.get('piecesA')?.clearValidators();
+  this.devisForm.get('piecesM')?.clearValidators();
 
-      // Mise à jour de la validité des champs
-      piecesAControl?.updateValueAndValidity();
-      piecesMControl?.updateValueAndValidity();
-    });
+  // Appliquer les validateurs si nécessaire
+  if (piecesControl) {
+    piecesControl.setValidators([Validators.required]);
+  }
+
+  // Mettre à jour la validité des champs
+  this.devisForm.get('piecesA')?.updateValueAndValidity();
+  this.devisForm.get('piecesM')?.updateValueAndValidity();
+});
   }
 
 
@@ -109,7 +113,7 @@ export class DevisComponent implements OnInit {
         });
       }, 2000); // Simulate a 2-second server response time
     } else {
-      console.error('Le formulaire est invalide');
+      console.error('Le formulaire est invalide', Error);
       this.showConfirmationMessage('Veuillez remplir tous les champs obligatoires.');
     }
   }
