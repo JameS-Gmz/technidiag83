@@ -11,7 +11,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   private map: L.Map | undefined;
   @ViewChild('map') mapElement!: ElementRef;
   @ViewChild('searchInput') searchInput!: ElementRef;
-  private initialCenter: L.LatLngExpression = [43.123, 6.131];
+  private initialCenter: L.LatLngExpression = [43.190571, 6.0420201];
   private initialZoom = 13;
   private currentMarker: L.Marker | null = null;
 
@@ -34,7 +34,10 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     { name: "Puget-Ville", coord: [43.2848554, 6.138408] },
     { name: "Saint-Cyr-sur-Mer", coord: [43.1810087, 5.711516] },
     { name: "Besse-sur-Issole", coord: [43.3494306, 6.1770266] },
-    { name: "Le Lavandou", coord: [43.1383795, 6.3701286] }
+    { name: "Le Lavandou", coord: [43.1383795, 6.3701286] },
+    { name: "Cuers", coord: [43.2372099, 6.072772] },
+    { name: "Pierrefeu-du-Var", coord: [43.2272615,43.2272615] },
+
   ];
 
   ngOnDestroy(): void {

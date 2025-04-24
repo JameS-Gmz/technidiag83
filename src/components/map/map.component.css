@@ -58,3 +58,19 @@
 .search-container input:focus {
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
+
+.info-message {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: left;
+    margin: 0;
+    padding: 3px 8px;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    z-index: 1000;
+    max-width: 250px;
+}

@@ -70,7 +70,7 @@
 
 .hours-container { 
   width: 100%;
-  height: 300px;
+  height: auto;
   background-color: rgba(0, 47, 109, 1);
   padding: 1rem;
   border-radius: 10px;
@@ -217,19 +217,6 @@
   gap: 2%;
 }
 
-.icons-grid > * {
-  animation: fadeIn 0.5s ease-in-out;
-  animation-fill-mode: both;
-}
-
-.icons-grid > *:nth-child(1) { animation-delay: 0.1s; }
-.icons-grid > *:nth-child(2) { animation-delay: 0.2s; }
-.icons-grid > *:nth-child(3) { animation-delay: 0.3s; }
-.icons-grid > *:nth-child(4) { animation-delay: 0.4s; }
-.icons-grid > *:nth-child(5) { animation-delay: 0.5s; }
-.icons-grid > *:nth-child(6) { animation-delay: 0.6s; }
-.icons-grid > *:nth-child(7) { animation-delay: 0.7s; }
-.icons-grid > *:nth-child(8) { animation-delay: 0.8s; }
 
 .footer-note {
   margin-top: 2rem;
@@ -472,44 +459,5 @@ display: none;
   }
 }
 
-/* Animation pour les boutons */
-app-button-icon {
-  transition: all 0.3s ease-in-out;
-}
-
-app-button-icon:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-/* Animation pour les colonnes */
-.left-column, .middle-column {
-  transition: all 0.3s ease-in-out;
-}
-
-/* Animation pour le texte */
-h1, h2, p {
-  transition: all 0.3s ease-in-out;
-}
-
-h1:hover, h2:hover {
-  color: #FFDE59;
-  transform: scale(1.01);
-}
-
-/* Animation pour les icônes */
-.icon img {
-  transition: all 0.3s ease-in-out;
-}
-
-.icon:hover img {
-  transform: rotate(2deg);
-  filter: brightness(1.1);
-}
-
-/* Animation pour les conteneurs */
-.header, .content {
-  transition: all 0.3s ease-in-out;
-}
 
 
