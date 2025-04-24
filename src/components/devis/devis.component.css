@@ -37,7 +37,8 @@ gap:2%
   background-color: rgba(0, 47, 109, 1);
   padding: 1rem;
   border-radius: 10px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .right-column h3 {
@@ -46,9 +47,8 @@ gap:2%
 }
 
 .right-column:hover {
-  box-shadow: 0 0 20px rgba(255, 222, 89, 0.8);
   transform: scale(1.05);
-  border-radius: 10px 10px 0px 0px ;
+  border-radius: 10px 10px 0px 0px;
   z-index: 20;
 }
 
@@ -65,9 +65,12 @@ gap:2%
   border-radius: 0 0 10px 10px;
   text-align: start;
   line-height: 1.5em;
-  box-shadow: 0 5px 5px rgba(255, 222, 89, 0.5); 
   opacity: 0;
-  transition: opacity 0.3s ease; 
+  transition: opacity 0.3s ease;
+}
+
+.warning p {
+  font-size: small;
 }
 
 .right-column:hover .warning {

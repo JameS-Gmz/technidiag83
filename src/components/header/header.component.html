@@ -1,8 +1,8 @@
-<div class="background">
-    <div class="column-1">
+<div class="background" @fadeInOut>
+    <div class="column-1" @slideInOut>
         <p>Diagnostiqueur Immobilier</p>
     </div>
-    <div class="column-2">
+    <div class="column-2" @slideInOut>
         <app-button-icon img="Devis.svg" text="Devis"
             routerLink="/devis"></app-button-icon>
         <app-button-icon img="Accueil.svg" text="Accueil"
@@ -10,7 +10,7 @@
         <div class="dropdown">
             <app-button-icon img="Diagnostic.svg"
                 text="Diagnostic"></app-button-icon>
-            <div class="dropdown-content">
+            <div class="dropdown-content" @fadeInOut>
                 <button class="dropdown-button"
                     routerLink="/diagnosticVente">Diagnostic Vente</button>
                 <button class="dropdown-button"
@@ -19,44 +19,43 @@
             </div>
         </div>
     </div>
-    <div class="column-3">
+    <div class="column-3" @slideInOut>
         <app-button-icon img="Contact.svg" text="Contact"
             routerLink="/contact"></app-button-icon>
     </div>
 </div>
 
-<div class="nav-container">
-    <div class="logo">
+<div class="nav-container" @fadeInOut>
+    <div class="logo" @slideInOut>
         <img src="tECHNIDIAG83 WHITE 1.svg" alt="Logo">
     </div>
 
     <!-- Bouton hamburger pour les écrans mobiles -->
-    <div class="menu-toggle" (click)="toggleMenu()">
+    <div class="menu-toggle" (click)="toggleMenu()" @slideInOut>
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
 
     <!-- Menu de navigation -->
-    <nav class="nav-menu" [ngClass]="{'open': isMenuOpen}">
+    <nav class="nav-menu" [ngClass]="{'open': isMenuOpen}" @slideInOut>
         <button class="close-btn" (click)="closeMenu()">X</button>
         <!-- Bouton de fermeture -->
         <ul>
-            <li><app-button-icon img="Accueil.svg" text="Accueil"
+            <li @fadeInOut><app-button-icon img="Accueil.svg" text="Accueil"
                     routerLink="/" (click)="closeMenu()"></app-button-icon></li>
-            <li><app-button-icon img="Contact.svg" text="Contact"
+            <li @fadeInOut><app-button-icon img="Contact.svg" text="Contact"
                     routerLink="/contact" (click)="closeMenu()"></app-button-icon></li>
-            <li>
+            <li @fadeInOut>
                 <div class="dropdown">
                     <app-button-icon img="Diagnostic.svg" text="Diagnostic" (click)="toggleDropdown()"></app-button-icon>
-                    <div class="dropdown-content" [ngClass]="{'show': dropdownOpen}">
+                    <div class="dropdown-content" [ngClass]="{'show': dropdownOpen}" @fadeInOut>
                         <button class="dropdown-button" routerLink="/diagnosticVente" (click)="closeMenu()">Diagnostic Vente</button>
                         <button class="dropdown-button" routerLink="/diagnosticLocation" (click)="closeMenu()">Diagnostic Location</button>
                     </div>
                 </div>
-                
             </li>
-            <li><app-button-icon img="Devis.svg"
+            <li @fadeInOut><app-button-icon img="Devis.svg"
                     text="Devis" routerLink="/devis" (click)="closeMenu()"></app-button-icon></li>
         </ul>
     </nav>

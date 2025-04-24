@@ -3,8 +3,7 @@
   padding-top: 0%;
   padding-bottom: 0%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr;  justify-content: space-between;
   align-items: center;
   background-color: rgba(0, 47, 109, 1);
   color: white;
@@ -202,4 +201,118 @@
   .nav-container {
     display: none;
   }
+}
+
+/* Animation du menu hamburger */
+.menu-toggle .bar {
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle:hover .bar {
+  background-color: #007bff;
+}
+
+/* Animation du dropdown */
+.dropdown-content {
+  transition: all 0.3s ease-in-out;
+  transform-origin: top;
+}
+
+.dropdown-content.show {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation des boutons du header */
+.background app-button-icon {
+  transition: all 0.3s ease-in-out;
+}
+
+.background app-button-icon:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+/* Animation du logo */
+.logo img {
+  transition: all 0.3s ease-in-out;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+/* Animation du menu mobile */
+.nav-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-menu.open {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* Animation des éléments du menu */
+.nav-menu ul li {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-menu ul li:hover {
+  transform: translateX(5px);
+}
+
+/* Animation du bouton de fermeture */
+.close-btn {
+  transition: all 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+  color: #007bff;
+}
+
+/* Animation des boutons du dropdown */
+.dropdown-button {
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-button:hover {
+  background-color: rgba(255, 222, 89, 0.8);
+  color: white;
+}
+
+/* Animation du texte "Diagnostiqueur Immobilier" */
+.column-1 p {
+  transition: all 0.3s ease-in-out;
+
+}
+
+
+
+/* Animation de la barre de navigation */
+.nav-container {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation des colonnes */
+.column-1, .column-2, .column-3 {
+  transition: all 0.3s ease-in-out;
+}
+
+.column-1:hover, .column-2:hover, .column-3:hover {
+  transform: translateY(-2px);
 }

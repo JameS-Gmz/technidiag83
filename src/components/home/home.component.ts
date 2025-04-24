@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonIconComponent } from "../button-icon/button-icon.component";
 import { ClicsService } from '../../services/clic.service';
-
+import { CommonModule } from '@angular/common';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonIconComponent],
+  standalone: true,
+  imports: [ButtonIconComponent, MapComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

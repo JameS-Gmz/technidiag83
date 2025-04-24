@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ClicService } from './clic.service';
+import { ClicsService } from './clic.service';
 
-describe('ClicService', () => {
-  let service: ClicService;
+describe('ClicsService', () => {
+  let service: ClicsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ClicService);
+    service = TestBed.inject(ClicsService);
   });
 
   it('should be created', () => {
