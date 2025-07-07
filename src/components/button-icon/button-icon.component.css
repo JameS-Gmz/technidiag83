@@ -4,11 +4,10 @@
   justify-content: center;
   text-align: center;
   transition: all 0.3s ease-in-out;
-  animation: fadeIn 0.5s ease-in-out;
 }
 
 .nav-item:hover {
-  transform: translateY(-1px);
+  transform: scale(1.02);
 }
 
 .nav-link {
@@ -22,7 +21,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-
 .nav-item p {
   margin: 0%;
   padding: 0%;
@@ -30,7 +28,6 @@
   font-size: auto;
   transition: all 0.3s ease-in-out;
 }
-
 
 /* Animation pour le bouton actif */
 .nav-link.active {
@@ -54,6 +51,67 @@
 /* Animation pour le conteneur */
 .nav-item {
   transition: all 0.3s ease-in-out;
+}
+
+.button-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-icon:hover {
+  transform: scale(1.02);
+  color: #ffde59;
+}
+
+.button-icon img {
+  width: 3em;
+  height: 3em;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-icon:hover img {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px rgba(255, 222, 89, 0.5));
+}
+
+.button-icon p {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-icon:hover p {
+  color: #ffde59;
+  transform: scale(1.05);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 900px) {
+  .button-icon img {
+    width: 2.5em;
+    height: 2.5em;
+  }
+  
+  .button-icon p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .button-icon img {
+    width: 2em;
+    height: 2em;
+  }
+  
+  .button-icon p {
+    font-size: 0.7rem;
+  }
 }
 
 

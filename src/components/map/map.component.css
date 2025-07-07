@@ -1,11 +1,12 @@
 #map {
     width: 100%;
-    height: 100%;
+    height: 300px;
     display: block;
     border-radius: 12px;
     position: relative;
     z-index: 1;
     background-color: #e8e8e8;
+    border: 1px solid #000000;
 }
 
 .custom-marker {
@@ -32,6 +33,7 @@
     height: 100%;
     position: relative;
     z-index: 1;
+    
 }
 
 .search-container {

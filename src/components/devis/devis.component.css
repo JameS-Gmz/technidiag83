@@ -1,4 +1,5 @@
 .devis-container {
+  width: 100%;
   font-family: Arial, sans-serif;
   color: white;
   padding: 2rem;
@@ -7,6 +8,7 @@
 }
 
 .content {
+  width: 100%;
 display: grid;
 grid-template-columns: 1fr 2fr 1fr;
 gap:2%
@@ -21,6 +23,7 @@ gap:2%
 }
 
 .left-column h2 {
+  width: 100%;  
   font-size: 1.5rem;
   margin: 0.5rem 0;
   color: #ffde59;
@@ -33,49 +36,65 @@ gap:2%
 
 .right-column {
   width: 100%;
-  height: 10%;
   background-color: rgba(0, 47, 109, 1);
-  padding: 1rem;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  transform-origin: top center;
+  max-height: max-content; /* hauteur du bandeau fermé (h2 visible) */
+  transition:
+    max-height 0.5s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
   position: relative;
+  padding: 1rem;
 }
 
-.right-column h3 {
-  color: #ffde59;
-  text-decoration: underline;
-}
+
 
 .right-column:hover {
-  transform: scale(1.05);
-  border-radius: 10px 10px 0px 0px;
-  z-index: 20;
+  max-height: max-content; /* hauteur suffisante pour afficher tout */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: scaleY(1.02);
+  border-radius: 10px;
 }
 
-.warning {
-  z-index: 21;
-  display: none;
-  width: 100%;
-  position: absolute;
-  top: 95%; 
-  left: 0;
-  padding: 15px;
-  background-color: rgba(0, 47, 109, 1);
-  color: white;
-  border-radius: 0 0 10px 10px;
-  text-align: start;
-  line-height: 1.5em;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+
+.right-title {
+  color: #ffde59;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
 }
 
-.warning p {
-  font-size: small;
-}
 
 .right-column:hover .warning {
   display: block;
   opacity: 1;
+}
+
+.warning {
+  display: none;
+  opacity: 0;
+  width: 100%;
+  background-color: rgba(0, 47, 109, 1);
+  color: white;
+  border-radius: 0 0 10px 10px;
+  text-align: start;
+  transition: opacity 0.4s ease 0.2s;
+  position: relative;
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+.warning .section {
+  margin-bottom: 1.5rem;
+}
+
+.warning h3 {
+  color: #ffde59;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
 }
 
 .middle-column {
@@ -204,8 +223,8 @@ textarea:focus {
   margin: 2%;
   border-radius: 0.5em;
   border: 1px solid #FFDE59;
-  opacity: 0;
-  animation: fadeIn 1.5s ease-out forwards; /* Animation d'apparition */
+  opacity: 1;
+  /* Animation removed */
 }
 
 .confirmation-message p {
@@ -231,33 +250,11 @@ textarea:focus {
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  animation: spin 1s linear infinite;
+  /* Animation removed */
 }
 
 
-/* Animation de fadeIn */
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px); /* Départ légèrement en haut */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* Position finale */
-    transform: opacity 1.5s ease-out forwards;
-  }
-}
-
-/* Animation de rotation */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+/* Animations removed */
 
 /* Media queries for responsiveness */
 

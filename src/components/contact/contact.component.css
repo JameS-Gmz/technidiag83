@@ -45,48 +45,66 @@
 
 .right-column {
   width: 100%;
-  height: 10%;
   background-color: rgba(0, 47, 109, 1);
-  padding: 1rem;
   border-radius: 10px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  transform-origin: top center;
+  max-height: max-content; /* hauteur du bandeau fermé (h2 visible) */
+  transition:
+    max-height 0.5s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
   position: relative;
+  padding: 1rem;
 }
 
-.right-column h3 {
-  color: #ffde59;
-  text-decoration: underline;
-}
+
 
 .right-column:hover {
-  transform: scale(1.05);
-  border-radius: 10px 10px 0 0;
+  max-height: max-content; /* hauteur suffisante pour afficher tout */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: scaleY(1.02);
+  border-radius: 10px;
+  
 }
 
-.warning {
-  z-index: 21;
-  display: none;
-  width: 100%;
-  position: absolute;
-  top: 95%;
-  left: 0;
-  padding: 15px;
-  background-color: rgba(0, 47, 109, 1);
-  color: white;
-  border-radius: 0 0 10px 10px;
-  text-align: start;
-  line-height: 1.5em;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+
+.right-title {
+  color: #ffde59;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
 }
 
-.warning p {
-  font-size: small;
-}
 
 .right-column:hover .warning {
   display: block;
   opacity: 1;
+}
+
+.warning {
+  display: none;
+  opacity: 0;
+  width: 100%;
+  background-color: rgba(0, 47, 109, 1);
+  color: white;
+  border-radius: 0 0 10px 10px;
+  text-align: start;
+  transition: opacity 0.4s ease 0.2s;
+  position: relative;
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+.warning .section {
+  margin-bottom: 1.5rem;
+}
+
+.warning h3 {
+  color: #ffde59;
+  margin-bottom: 0.5rem;
+  text-decoration: underline;
 }
 
 .middle-flex {
@@ -275,20 +293,20 @@
 }
 
 .contact-container {
-    animation: fadeIn 0.5s ease-out;
+    /* Animation removed */
 }
 
 .contact-form {
-    animation: slideIn 0.5s ease-out 0.2s backwards;
+    /* Animation removed */
 }
 
 .contact-info {
-    animation: scaleIn 0.5s ease-out 0.3s backwards;
+    /* Animation removed */
 }
 
 /* Animation pour les champs de formulaire */
 .form-group {
-    animation: fadeIn 0.5s ease-out;
+    /* Animation removed */
     transition: all 0.3s ease-in-out;
 }
 
@@ -303,7 +321,7 @@
 
 /* Animation pour les boutons */
 .submit-button {
-    animation: scaleIn 0.5s ease-out;
+    /* Animation removed */
     transition: all 0.3s ease-in-out;
 }
 
@@ -314,7 +332,7 @@
 
 /* Animation pour les informations de contact */
 .contact-details {
-    animation: slideIn 1s ease-out;
+    /* Animation removed */
     transition: all 0.8s ease-in-out;
 }
 
@@ -324,15 +342,15 @@
 }
 
 .container, .container-mobile {
-    animation: fadeIn 0.5s ease-out;
+    /* Animation removed */
 }
 
 .table {
-    animation: slideIn 0.5s ease-out 0.2s backwards;
+    /* Animation removed */
 }
 
 .column-1 {
-    animation: scaleIn 0.5s ease-out 0.3s backwards;
+    /* Animation removed */
     transition: all 0.3s ease-in-out;
 }
 
@@ -342,7 +360,7 @@
 }
 
 .column-2 {
-    animation: scaleIn 0.5s ease-out 0.4s backwards;
+    /* Animation removed */
     transition: all 0.3s ease-in-out;
 }
 
@@ -352,7 +370,7 @@
 }
 
 .column-1 ul li {
-    animation: slideIn 0.5s ease-out;
+    /* Animation removed */
     transition: all 0.3s ease-in-out;
 }
 
@@ -362,7 +380,7 @@
 }
 
 h1 {
-    animation: fadeIn 0.5s ease-out;
+    /* Animation removed */
     transition: all 0.3s ease-in-out;
 }
 
